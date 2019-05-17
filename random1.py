@@ -23,7 +23,7 @@ elif choice==2:
     print("Maximum number of this list is",max,"at index",arr.index(max))
 #MEAN OF RANDOM LIST
 elif choice==3:
-    avg=0
+    mean=0
     sum=0
     for i in range(len(arr)):
         sum+=arr[i]
