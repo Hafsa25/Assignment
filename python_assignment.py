@@ -23,14 +23,6 @@ def expression():
      n=int(input("Enter an integer n:"))
      ans=n+n**2+n**3
      print("The value of (n+nn+nnn) is :",ans)
-# date1=int(input("Enter a valid date :" ))
-# date2=int(input("Enter a valid date :" ))
-# d1=str(date1)
-# d2=str(date2)
-# diff=date2-date1
-# days=str(diff)
-# print("The no of days between",d1,"and",d2,"are",days)
-
 def volume():
     rad=int(input("Enter the radius of sphere : "))
     volume=(4/3)*math.pi*(rad**3)
@@ -43,8 +35,7 @@ def str_copy():
     string=input("Enter a string : ")
     times=int(input("How many times you want to copy this string : "))
     string2=""
-    for i in range(times):
-        string2=string2 + string
+    string2=string*times
     print(string2)
 def even_odd():
     num=int(input("Enter a number : "))
@@ -53,7 +44,7 @@ def even_odd():
     else:
         print(num,"is odd")
 def vowel_or_consonant():
-    vowels=['a','e','i','o','u']
+    vowels=('a','e','i','o','u')
     count=0
     alphabet=input("Enter a alphabet")
     for i in range(len(vowels)):
@@ -217,9 +208,123 @@ def palindrome():
         print(num,"is palindrome")
     else:
         print(num,"is not palindrome")   
-
-
-
+def no_of_notes():
+    Notes = (500, 200, 100, 50, 20, 10)
+    no_of_notes = 0
+    Amount=int(input("Enter the amount: "))
+    amt=Amount
+    for i in range(len(Notes)):
+        q = Notes[i]
+        no_of_notes += int(Amount / q)
+        Amount = int(Amount % q)
+    if Amount > 0:
+        no_of_notes = -1
+    print("The no of notes in ",amt,"are: ",no_of_notes)
+def fibonacci_series():
+    first=0
+    second=1
+    print("Fibonacci series from 0 to 50 : ")
+    while first <= 50:
+            print(first,end=",")
+            next=first+second
+            first=second
+            second=next
+def tables(): 
+    count=1
+    num=int(input("Enter a number to print its table:"))
+    while count<=10:
+        print(num, "*",count,"=",num*count)
+        count+=1
+def digits_and_letters():
+    digits=0
+    letters=0
+    string=input("Enter a string to count digits and letters: ")
+    for i in string:
+        if i.isdigit() and i!="\n":
+            digits+=1
+        elif i.isalpha() and i!="\n":
+            letters+=1
+    print("Digits = ",digits,"Letters = ",letters)
+def star_pattern():
+    for i in range(5):
+        for j in range(i+1):
+            print("*",end=" ")
+        print("\n")
+    for i in range(5,0,-1):
+        for j in range(0,i-1):
+            print("*",end=" ")
+        print("\n")
+def num_pattern():
+    for i in range(1,6):
+        for j in range(1,i+1):
+            print(j,end=" ")
+        print("\n")
+    for i in range(6,1,-1):
+        for j in range(1,i-1):
+            print(j,end=" ")
+        print("\n")
+def same_num_pattern():
+    for i in range(10):
+        for j in range(i):
+            print(i,end=" ")
+        print("\n")
+def bin_to_dec():
+    dec=0
+    num=input("Enter a binary number for conversion: ")
+    num_len=len(num)
+    for i in range(1,num_len+1):
+        dec+=int(num[i-1])*(2**(num_len-i))
+    print("Deciaml of ",num,"is: ",dec)
+def octal_to_dec():
+    dec=0
+    octal=input("Enter an octal number: ")
+    num_len=len(octal)
+    for i in range(1,num_len+1):
+        dec+=int(octal[i-1])*(8**(num_len-i))
+    print("Decimal of",octal,"is: ",dec)
+def no_of_days():
+    from datetime import date
+    year1=int(input("Enter first year: "))
+    month1=int(input("Enter first month: "))
+    date1=int(input("Enter first date: "))
+    year2=int(input("Enter second year: "))
+    month2=int(input("Enter second month: "))
+    date2=int(input("Enter second date: "))
+    first=date(year1,month1,date1)
+    second=date(year2,month2,date2)
+    day=second-first
+    print("Number of days between",first,"and",second,"are",day.days)
+def Is_string():
+    string=input("Enter a string: ")
+    if string[0:2]=="Is" or string[0:2]=="is":
+        print(string)
+    else:
+        print("is"+string)
+def secinto_day_hrs_min():
+    sec=float(input("Enter time is seconds: "))
+    minute=sec/60
+    hour=sec/3600
+    day=sec/86400
+    print(sec,"in minutes is: ",minute)
+    print(sec,"in hours is: ",hour)
+    print(sec,"in days is: ",day)
+def half_diamond_stars():
+    for i in range(5):
+        for j in range(i+1):
+            print("*",end=" ")
+        print("\n")
+def half_diamond_num():
+      for i in range(1,6):
+        for j in range(1,i+1):
+            print(j,end=" ")
+        print("\n")
+def diamond_stars():
+    num = 9
+    for i in range(1, num+1):
+        i = i - (num//2 +1)
+        if i < 0:
+            i = -i
+        print(" " * i + "*" * (num - i*2) + " "*i)
 print("Enter your choice: ")
 print("1: Area of circle ")
 print("2: Positive or negative ")
@@ -249,6 +354,21 @@ print("25: Least Common Multiple ")
 print("26: String Reverse ")
 print("27: Count vowel and consonant ")
 print("28: Palindrome or not ")
+print("29: No of notes in a given amount ")
+print("30: Fibonacci Series ")
+print("31: Table of a number ")
+print("32: Count digits and letters")
+print("33: Star Pattern")
+print("34: Number Pattern in increasing order")
+print("35: Similar Number Pattern ")
+print("36: Binary to decimal conversion ")
+print("37: Octal to decimal conversion ")
+print("38: Number of days between two dates")
+print("39: String starting with is ")
+print("40: Second in minutes,hours and days")
+print("41: Half diamond of stars ")
+print("42: Half diamond of numbers ")
+print("43: Diamond stars")
 
 choice=int(input())
 if choice==1:
@@ -307,6 +427,38 @@ elif choice==27:
     count_vowel_consonant()
 elif choice==28:
     palindrome()
+elif choice==29:
+    no_of_notes()
+elif choice==30:
+   fibonacci_series()
+elif choice==31:
+   tables()
+elif choice==32:
+    digits_and_letters()
+elif choice==33:
+    star_pattern()
+elif choice==34:
+    num_pattern()
+elif choice==35:
+    same_num_pattern()
+elif choice==36:
+    bin_to_dec()
+elif choice==37:
+    octal_to_dec()
+elif choice==38:
+    no_of_days()
+elif choice==39:
+    Is_string()
+elif choice==40:
+    secinto_day_hrs_min()
+elif choice==41:
+    half_diamond_stars()
+elif choice==42:
+    half_diamond_num()
+elif choice==43:
+    diamond_stars()
+
+
 
 
         
